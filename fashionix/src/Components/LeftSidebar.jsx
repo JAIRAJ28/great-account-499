@@ -24,7 +24,7 @@ export const LeftSideBar = () => {
     "TOPS",
     "JEANS",
     "T-SHIRTS | BODYSUITS",
-    "SHORTS | SKORTS",
+    "SHORTS | SKIRTS",
     "SKIRTS",
     "CO-ORD SETS",
     "KNITWEAR",
