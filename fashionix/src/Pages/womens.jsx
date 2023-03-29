@@ -1,9 +1,16 @@
 import React from 'react'
+import styled from '@emotion/styled'
 
-export const womens = () => {
-  return (
-    <div>
-        <h1>womens</h1>
-    </div>
-  )
+export const Womens = () => {
+    return (
+        <DIV>
+
+        </DIV>
+    )
 }
+
+
+const DIV=styled.div`
+    
+`
+
