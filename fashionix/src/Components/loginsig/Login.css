@@ -1,0 +1,47 @@
+.mainDiv{
+    display:flex;
+    gap:100px;
+    width:80%;
+    padding:30px;
+    margin:auto;
+    text-align:start;
+}
+
+.loginButton{
+    width:100%;
+    margin-top:50px
+    
+}
+
+.form-Input{
+    border-top:0;
+    border-left:0;
+    border-right:0;
+    width:100%;
+    margin-top:40px
+}
+.form-Input::placeholder{
+    color: gray;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+.innerDiv1{
+    width: 30%;
+}
+.innerDiv2{
+    width: 30%; 
+}
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .mainDiv{
+        width: 90%;
+      
+        flex-direction: column;
+        padding: 40px;
+    }
+    .innerDiv1{
+        width: 100%;
+    }
+    .innerDiv2{
+        width: 100%; 
+    }
+}

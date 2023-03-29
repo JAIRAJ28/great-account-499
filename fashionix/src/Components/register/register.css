@@ -1,0 +1,36 @@
+.mainDivRegister{
+    display:flex;
+    gap:100px;
+    width:80%;
+    padding:30px;
+    margin:auto;
+    text-align:start;
+    margin-bottom: 255px;
+}
+.form-Inputregister{
+    border-top:0;
+    border-left:0;
+    border-right:0;
+    width:100%;
+    margin-top:40px
+}
+.form-Inputregister::placeholder{
+    color: gray;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.cehckboxspanned{
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+}
+.loginButtonregister{
+    margin-top: 20px;
+}
+.innerDiv1register{
+    width: 40%;
+}
+.innerDiv2register{
+    width: 30%; 
+    
+}
