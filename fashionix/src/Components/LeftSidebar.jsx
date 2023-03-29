@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 export const LeftSideBar = () => {
   const [val, setVal] = useState(true);
+  const [man, setMan] = useState(false);
   const handleChange = (e) => {
     changeVal();
   };
@@ -94,19 +95,52 @@ export const LeftSideBar = () => {
 
             <div className="menuTop">
               <Link to={""}>
-                <span>WOMAN</span>
-              </Link>
-              <Link to={"/men"}>
-                <span>MENS</span>
+                <button
+                  className="btn"
+                  style={
+                    man
+                      ? {}
+                      : { fontWeight: "bold", textDecoration: "underline" }
+                  }
+                  onClick={() => setMan(false)}
+                >
+                  WOMAN
+                </button>
               </Link>
               <Link to={""}>
-                <span>KIDS</span>
+                <span>
+                  <button
+                    className="btn"
+                    style={
+                      man
+                        ? { fontWeight: "bold", textDecoration: "underline" }
+                        : {}
+                    }
+                    onClick={() => setMan(true)}
+                  >
+                    MAN
+                  </button>
+                </span>
               </Link>
               <Link to={""}>
-                <span>BEAUTY</span>
+                <span>
+                  <button className="btn">KIDS</button>
+                </span>
+              </Link>
+              <Link to={""}>
+                <span>
+                  <button className="btn">BEAUTY</button>
+                </span>
               </Link>
             </div>
-            <ul className="menu womenMenu" style={{ overflow: "auto" }}>
+            <ul
+              className="menu"
+              style={
+                man
+                  ? { display: "none" }
+                  : { display: "block", overflow: "auto" }
+              }
+            >
               {menuItemWomen.map((ele, index) => (
                 <li key={index}>
                   <Link
@@ -126,7 +160,14 @@ export const LeftSideBar = () => {
                 </li>
               ))}
             </ul>
-            <ul className="menu menMenu" style={{ overflow: "auto" }}>
+            <ul
+              className="menu"
+              style={
+                man
+                  ? { display: "block", overflow: "auto" }
+                  : { display: "none" }
+              }
+            >
               {menuItemMen.map((elem, index) => (
                 <li key={index}>
                   <Link
@@ -372,6 +413,11 @@ const Container = styled.div`
     top: 0;
   }
 
+  .btn {
+    border: none;
+    background: transparent;
+  }
+
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -561,13 +607,3 @@ const Container = styled.div`
     }
   }
 `;
-
-// import React from 'react'
-
-// const Sidebar = () => {
-//   return (
-//     <div>Sidebar</div>
-//   )
-// }
-
-// export default Sidebar
