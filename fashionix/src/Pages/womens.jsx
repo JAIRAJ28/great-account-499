@@ -2,6 +2,8 @@ import React from 'react'
 
 export const womens = () => {
   return (
-    <div>womens</div>
+    <div>
+        <h1>womens</h1>
+    </div>
   )
 }
