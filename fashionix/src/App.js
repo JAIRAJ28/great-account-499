@@ -5,8 +5,8 @@ import Loader from "./Components/HomePage/Loader";
 import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
-
 import Footer from "./Components/footer/footer";
+
 function App() {
 
   const [Loaded, setLoaded] = useState(false);
@@ -23,6 +23,7 @@ function App() {
         <Navbar />
         <LeftSideBar/>
         <Home key="home" />
+        <Footer/>
       </div>
     </>
 
