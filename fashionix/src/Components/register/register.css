@@ -12,7 +12,9 @@
     border-left:0;
     border-right:0;
     width:100%;
-    margin-top:40px
+    margin-top:40px;
+    padding:10px;
+    font-size: 15px;
 }
 .form-Inputregister::placeholder{
     color: gray;
@@ -32,5 +34,21 @@
 }
 .innerDiv2register{
     width: 30%; 
-    
+    margin-top:120px ;
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .mainDivRegister{
+        width: 90%;
+      
+        flex-direction: column;
+        padding: 40px;
+    }
+    .innerDiv1register{
+        width: 100%;
+    }
+    .innerDiv2register{
+        width: 100%; 
+    }
 }
