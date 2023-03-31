@@ -4,7 +4,6 @@ import { FaBars, FaShoppingCart, FaQuestion, FaUser } from "react-icons/fa";
 import { RiAdminLine } from "react-icons/ri";
 import FashionIx2 from "../Images/FashionIx2.png";
 import FashionIx from "../Images/FashionIx.png";
-import Login from "../loginsig/login";
 
 export default function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
