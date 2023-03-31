@@ -1,10 +1,133 @@
 import React from "react";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Button,
+  Input,
+  Accordion,
+  AccordionItem,
+  Box,
+  AccordionIcon,
+  AccordionButton,
+  AccordionPanel,
+  Slider,
+  SliderMark,
+  SliderTrack,
+  SliderFilledTrack,
+  Tooltip,
+  SliderThumb,
+  Flex,
+} from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
 
 const Filter = () => {
-  return <div>Filter</div>;
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [sliderValue, setSliderValue] = React.useState(5);
+  const [showTooltip, setShowTooltip] = React.useState(false);
+  const btnRef = React.useRef();
+  return (
+    <>
+      <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+        Open
+      </Button>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader></DrawerHeader>
+
+          <DrawerBody mt={5} pt={5}>
+            <Accordion defaultIndex={[0]} allowMultiple>
+              <AccordionItem>
+                <h2>
+                  <AccordionButton>
+                    <Box as="span" flex="1" textAlign="left">
+                      Size
+                    </Box>
+                    <AddIcon boxSize={3} />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  <Flex justifyContent={"space-between"} pb={4}>
+                    <Button colorScheme="gray" variant="outline">
+                      Buttonfcdd
+                    </Button>
+                    <Button
+                      colorScheme="gray"
+                      variant="outline"
+                      borderRadius={"none"}
+                    >
+                      Buttondvfd
+                    </Button>
+                  </Flex>
+                  <Button colorScheme="gray" variant="outline">
+                    Button
+                  </Button>
+                </AccordionPanel>
+              </AccordionItem>
+
+              <AccordionItem>
+                <h2>
+                  <AccordionButton>
+                    <Box as="span" flex="1" textAlign="left">
+                      Price
+                    </Box>
+                    <AddIcon boxSize={3} />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={7}>
+                  <Slider
+                    id="slider"
+                    defaultValue={5}
+                    min={0}
+                    max={100}
+                    colorScheme="teal"
+                    onChange={(v) => setSliderValue(v)}
+                    onMouseEnter={() => setShowTooltip(true)}
+                    onMouseLeave={() => setShowTooltip(false)}
+                  >
+                    <SliderMark value={25} mt="1" ml="-2.5" fontSize="sm">
+                      25%
+                    </SliderMark>
+                    <SliderMark value={50} mt="1" ml="-2.5" fontSize="sm">
+                      50%
+                    </SliderMark>
+                    <SliderMark value={75} mt="1" ml="-2.5" fontSize="sm">
+                      75%
+                    </SliderMark>
+                    <SliderTrack>
+                      <SliderFilledTrack />
+                    </SliderTrack>
+                    {/* <Tooltip
+                      hasArrow
+                      bg="teal.500"
+                      color="white"
+                      placement="top"
+                      isOpen={showTooltip}
+                      label={`${sliderValue}%`}
+                    >
+                      <SliderThumb />
+                    </Tooltip> */}
+                  </Slider>
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
+  );
 };
 
 export default Filter;
-
-//type:1-jackets,T-shirt,shirt
-//color:1,2,3,4,5,null
