@@ -1,0 +1,28 @@
+.singleleftInfo{
+    width: 30%;
+    padding: 30px;
+   height: 650px;  
+   font-size: 12px;
+}
+.singledisplay{
+    height: 600px;
+    width: 35%;
+    overflow: auto !important;
+   padding: 0 80px;
+   border-right:2px solid black ;
+   border-left:2px solid black ;
+}
+.singledisplayimg{
+    width:85%;
+    height: 90%;
+    margin: 30px;
+}
+
+.singledetailsRight{
+    width:35%;
+    padding-top: 30px;
+}
+.singledetailsRight2{
+    width:60%;
+    padding:0px 40px
+}

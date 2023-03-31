@@ -35,7 +35,7 @@ console.log(setAll)
   updateProfile(user,{
     displayName:setAll.name
   })
-  console.log(res)
+
  }).catch((err)=>{
   setDisabled(false)
   console.log(err)})

@@ -7,6 +7,7 @@ import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
 import { Register } from "./Components/register/register";
 import Footer from "./Components/footer/footer";
+import Moredetails from "./Components/Singlepage/singledetails";
 function App() {
 
   const [Loaded, setLoaded] = useState(false);
@@ -25,7 +26,7 @@ function App() {
         <LeftSideBar/>
 
         <Home key="home" />
-        <Register/>
+     
         <Footer />
       </div>
     </>
