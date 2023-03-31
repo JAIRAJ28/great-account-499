@@ -1,10 +1,10 @@
 import "./App.css";
-import { LeftSideBar } from "./Components/LeftSidebar";
 import Navbar from "./Components/HomePage/Navbar";
 import Loader from "./Components/HomePage/Loader";
 import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
+import LeftSidebar from "./Components/LeftSidebar";
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <AnimatePresence>{Loaded ? null : <Loader />}</AnimatePresence>
       <div className="App">
         <Navbar />
-        <LeftSideBar/>
+        <LeftSidebar/>
         <Home key="home" />
       </div>
     </>
