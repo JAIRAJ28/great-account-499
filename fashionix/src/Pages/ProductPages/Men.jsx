@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {ProductList} from './Product'
+import {ProductList} from './Product';
+import SearchBar from './SearchBar';
 
 function Men() {
   const [products, setProducts] = useState([]);
@@ -11,7 +12,10 @@ function Men() {
       .catch(error => console.error(error));
   }, []);
 
-  return <ProductList products={products} />;
+  return <>
+  <SearchBar/>
+  <ProductList products={products} />;
+</>
 }
 
 export default Men;
