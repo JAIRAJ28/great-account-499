@@ -5,8 +5,9 @@ const SearchBarWrapper = styled.div`
   width: 100%;
   margin: 0 auto; 
   border-bottom: 1px solid black;
-  margin-top:10px;
-  margin-bottom:10px;
+  margin-top:20px;
+  margin-bottom:30px;
+  
 `;
 
 const SearchInput = styled.input`

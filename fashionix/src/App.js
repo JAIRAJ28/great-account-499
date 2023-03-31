@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
 import LeftSidebar from "./Components/LeftSidebar";
+import Women from './Pages/ProductPages/Women';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Navbar />
         <LeftSidebar/>
         <Home key="home" />
+        <Women/>
       </div>
     </>
 
