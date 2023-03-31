@@ -33,8 +33,15 @@ const Filter = () => {
   const btnRef = React.useRef();
   return (
     <>
-      <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
-        Open
+      <Button
+        ref={btnRef}
+        colorScheme="white"
+        onClick={onOpen}
+        textColor="black"
+        border={"1px solid gray"}
+        borderRadius={"none"}
+      >
+        Filter
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -49,34 +56,6 @@ const Filter = () => {
 
           <DrawerBody mt={5} pt={5}>
             <Accordion defaultIndex={[0]} allowMultiple>
-              <AccordionItem>
-                <h2>
-                  <AccordionButton>
-                    <Box as="span" flex="1" textAlign="left">
-                      Size
-                    </Box>
-                    <AddIcon boxSize={3} />
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  <Flex justifyContent={"space-between"} pb={4}>
-                    <Button colorScheme="gray" variant="outline">
-                      Buttonfcdd
-                    </Button>
-                    <Button
-                      colorScheme="gray"
-                      variant="outline"
-                      borderRadius={"none"}
-                    >
-                      Buttondvfd
-                    </Button>
-                  </Flex>
-                  <Button colorScheme="gray" variant="outline">
-                    Button
-                  </Button>
-                </AccordionPanel>
-              </AccordionItem>
-
               <AccordionItem>
                 <h2>
                   <AccordionButton>
@@ -120,6 +99,88 @@ const Filter = () => {
                       <SliderThumb />
                     </Tooltip> */}
                   </Slider>
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem>
+                <h2>
+                  <AccordionButton>
+                    <Box as="span" flex="1" textAlign="left">
+                      Size
+                    </Box>
+                    <AddIcon boxSize={3} />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  <Flex justifyContent={"space-around"} pb={4}>
+                    <Button
+                      colorScheme="gray"
+                      variant="outline"
+                      borderRadius={"none"}
+                    >
+                      Black
+                    </Button>
+                    <Button
+                      colorScheme="gray"
+                      variant="outline"
+                      borderRadius={"none"}
+                    >
+                      Gray
+                    </Button>
+                  </Flex>
+                  <Flex justifyContent={"space-around"} pb={4}>
+                    <Button
+                      colorScheme="gray"
+                      variant="outline"
+                      borderRadius={"none"}
+                    >
+                      Black
+                    </Button>
+                    <Button
+                      colorScheme="gray"
+                      variant="outline"
+                      borderRadius={"none"}
+                    >
+                      Gray
+                    </Button>
+                  </Flex>
+                  <Flex justifyContent={"space-around"} pb={4}>
+                    <Button
+                      colorScheme="gray"
+                      variant="outline"
+                      borderRadius={"none"}
+                    >
+                      Black
+                    </Button>
+                  </Flex>
+                </AccordionPanel>
+              </AccordionItem>
+              <AccordionItem>
+                <h2>
+                  <AccordionButton>
+                    <Box as="span" flex="1" textAlign="left">
+                      Type
+                    </Box>
+                    <AddIcon boxSize={3} />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  <Flex justifyContent={"space-around"} pb={4}>
+                    <Button colorScheme="gray" variant="outline">
+                      Jacket
+                    </Button>
+                    <Button
+                      colorScheme="gray"
+                      variant="outline"
+                      borderRadius={"none"}
+                    >
+                      T-shirt
+                    </Button>
+                  </Flex>
+                  <Flex justifyContent={"space-around"} pb={4}>
+                    <Button colorScheme="gray" variant="outline">
+                      Shirt
+                    </Button>
+                  </Flex>
                 </AccordionPanel>
               </AccordionItem>
             </Accordion>
