@@ -327,6 +327,7 @@ const Container = styled.div`
     position: relative;
     transition: background 0.2s ease-out;
     width: 18px;
+    margin-top:20px;
   }
 
   .header .menu-icon .navicon:before,
