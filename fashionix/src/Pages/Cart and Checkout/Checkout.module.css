@@ -1,0 +1,138 @@
+.loading{
+    width:100vw;
+    height:100vh;
+    background:white;
+    position:fixed;
+    z-index:4000;
+    top:0;
+    right:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    font-size:1.5rem;
+    color:#828282;
+}
+
+.loader{
+    width:20rem;
+    height:5rem;
+}
+
+.loader > img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+
+.container{
+    width:100%;
+    /* margin:0 auto 2rem; */
+}
+
+.imgdiv{
+    height:13vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgdiv > img{
+    width:60%;
+    height:60%;
+    object-fit: contain;
+}
+
+.infoContainer{
+    background:#f9f9f9 ;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(18rem, 1fr));
+    gap:2vw;
+}
+
+.details{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    gap:2vh;
+    padding:2rem 0;
+}
+
+.details > p{
+    width:70%;
+    text-align:center;
+    line-height: 1.5;
+}
+
+.card{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    height:3rem;
+    border: 1px solid #9b9b9b;
+    width:90%;
+    padding:1rem 0;
+}
+
+.card:hover{
+    border: 2px solid #ee4a1b;
+}
+
+.card > p{
+    margin:0;
+    display:inline-block;
+}
+
+.detailsInput{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1rem;
+    width:85%;
+    margin-bottom:2rem;
+}
+
+.detailsInput > input,
+.detailsInput > textarea{
+    width:100%;
+    font-size:1rem;
+    outline:none;
+    border:2px solid lightgrey;
+    border-radius:0.25rem;
+    padding:0.5rem;
+    -webkit-border-radius:0.25rem;
+    -moz-border-radius:0.25rem;
+    -ms-border-radius:0.25rem;
+    -o-border-radius:0.25rem;
+}
+
+.detailsInput > .dateDetails{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+}
+
+.detailsInput > .dateDetails > input{
+    width:25%;
+    font-size:1rem;
+    outline:none;
+    border:2px solid lightgrey;
+    border-radius:0.25rem;
+    padding:0.5rem;
+}
+
+
+
+.btn{
+    margin-top:2rem;
+    height:3rem;
+    width:90%;
+    background:white;
+    border:2px solid lightgrey;
+    color:black;
+    font-size:0.95rem;
+    font-weight:600;
+    border:none;
+}

@@ -1,7 +1,8 @@
 import { DeleteIcon } from "@chakra-ui/icons";
 import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import styles from "./Checkout.module.css";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 let cartProduct = [
   {
     id: 1,
@@ -51,7 +52,15 @@ const CartandCheckout = () => {
   console.log(cartProduct, "cart");
 
   const [cartProd, setCartProd] = useState(cartProduct);
+  const [openAdd, setOpenAdd] = React.useState(false);
+  const [openCard, setOpenCard] = React.useState(false);
 
+  const [success, setSuccess] = React.useState(false);
+
+  const subTotal = 0;
+  const cartCount = 0;
+
+  const navigate = useNavigate();
   let subtotal = 0;
   for (let i = 0; i < cartProd.length; i++) {
     let amount = +cartProd[i].price;
@@ -76,6 +85,7 @@ const CartandCheckout = () => {
   if (subtotal > 1000) {
     deliveryAmt = "FREE";
   }
+
   function handleClick(id) {
     let deletedArray = cartProd.filter((elem) => elem.id !== id);
     setCartProd(deletedArray);
@@ -185,46 +195,135 @@ const CartandCheckout = () => {
               </Text>
             </center>
           </Box>
-          <Box m={"20px auto"} w={"100%"}>
-            <Button
-              colorScheme="white"
-              textColor="black"
-              border={"1px solid gray"}
-              w={"100%"}
-              borderRadius="none"
-              py={5}
-            >
-              ADDRESS
-            </Button>
-          </Box>
-          <Box m={"20px auto"} w={"100%"}>
-            <Link to="">
-              <Button
-                colorScheme="white"
-                textColor="black"
-                border={"1px solid gray"}
-                w={"100%"}
-                borderRadius="none"
-                py={3}
-              >
-                CASH ON DELIVERY
-              </Button>
-            </Link>
-          </Box>
-          <Box m={"20px auto"} w={"100%"}>
-            <Link to="">
-              <Button
-                colorScheme="white"
-                textColor="black"
-                border={"1px solid gray"}
-                w={"100%"}
-                borderRadius="none"
-                py={3}
-              >
-                CARD PAYMENT
-              </Button>
-            </Link>
-          </Box>
+
+          <div className={styles.container}>
+            <div className={styles.infoContainer}>
+              <div className={styles.details}>
+                <div
+                  className={styles.card}
+                  style={{ border: openAdd ? "2px solid #ee4a1b" : "" }}
+                  onClick={() => setOpenAdd(!openAdd)}
+                >
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIGZpbGw9IiNFRTRBMUIiIGN4PSI5IiBjeT0iOSIgcj0iOSIvPjxwYXRoIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTEzIDkuNjRIOS44M1YxM0g4LjE1NFY5LjY0SDVWOC4xNTZoMy4xNTNWNUg5LjgzdjMuMTU2SDEzeiIvPjwvZz48L3N2Zz4K "
+                    alt=""
+                  />
+                  <p>Add Shipping Address</p>
+
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIzLjk2NjM5NiAxMi4xMjYyNDJjLjAzMDQ2MS4xOTc3MjYtLjAzMDQ2LjQwNjgwOS0uMTgyNzY1LjU1OTExM2wtNS4zNzQwMTIgNS4zNzQwMTJjLS4yNTM4NC4yNTM4NC0uNjY1Mzk4LjI1Mzg0LS45MTkyMzggMC0uMjUzODQxLS4yNTM4NC0uMjUzODQxLS42NjUzOTggMC0uOTE5MjM5TDIyLjUwNiAxMi4xMjVsLTUuMDE1NjItNS4wMTUzOGMtLjI1Mzg0LS4yNTM4NDEtLjI1Mzg0LS42NjUzOTkgMC0uOTE5MjQuMjUzODQxLS4yNTM4NC42NjUzOTktLjI1Mzg0LjkxOTI0IDBsNS4zNzQwMSA1LjM3NDAxMmMuMTUyMzA1LjE1MjMwNS4yMTMyMjcuMzYxMzg3LjE4Mjc2Ni41NTkxMTR6IiBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4="
+                    alt=""
+                  />
+                </div>
+                {openAdd ? (
+                  <div className={styles.detailsInput}>
+                    <input type="text" placeholder="Full Name" required />
+                    <textarea
+                      cols="30"
+                      rows="10"
+                      placeholder="Address"
+                      required
+                    />
+                    <input type="text" placeholder="City" required />
+                    <input type="text" placeholder="State" required />
+                    <input type="text" placeholder="Country" required />
+                    <input type="tel" placeholder="Mobile Number" required />
+                  </div>
+                ) : (
+                  <></>
+                )}
+                <div
+                  className={styles.card}
+                  onClick={() => {
+                    alert("Your order placed successfully");
+                    navigate("/");
+                  }}
+                  style={{ border: openAdd ? "2px solid #ee4a1b" : "" }}
+                >
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIGZpbGw9IiNFRTRBMUIiIGN4PSI5IiBjeT0iOSIgcj0iOSIvPjxwYXRoIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTEzIDkuNjRIOS44M1YxM0g4LjE1NFY5LjY0SDVWOC4xNTZoMy4xNTNWNUg5LjgzdjMuMTU2SDEzeiIvPjwvZz48L3N2Zz4K "
+                    alt=""
+                  />
+                  <p>Choose COD</p>
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIzLjk2NjM5NiAxMi4xMjYyNDJjLjAzMDQ2MS4xOTc3MjYtLjAzMDQ2LjQwNjgwOS0uMTgyNzY1LjU1OTExM2wtNS4zNzQwMTIgNS4zNzQwMTJjLS4yNTM4NC4yNTM4NC0uNjY1Mzk4LjI1Mzg0LS45MTkyMzggMC0uMjUzODQxLS4yNTM4NC0uMjUzODQxLS42NjUzOTggMC0uOTE5MjM5TDIyLjUwNiAxMi4xMjVsLTUuMDE1NjItNS4wMTUzOGMtLjI1Mzg0LS4yNTM4NDEtLjI1Mzg0LS42NjUzOTkgMC0uOTE5MjQuMjUzODQxLS4yNTM4NC42NjUzOTktLjI1Mzg0LjkxOTI0IDBsNS4zNzQwMSA1LjM3NDAxMmMuMTUyMzA1LjE1MjMwNS4yMTMyMjcuMzYxMzg3LjE4Mjc2Ni41NTkxMTR6IiBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4="
+                    alt=""
+                  />
+                </div>
+                <div
+                  className={styles.card}
+                  onClick={() => setOpenCard(!openCard)}
+                  style={{ border: openAdd ? "2px solid #ee4a1b" : "" }}
+                >
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48Y2lyY2xlIGZpbGw9IiNFRTRBMUIiIGN4PSI5IiBjeT0iOSIgcj0iOSIvPjxwYXRoIGZpbGw9IiNGRkYiIGZpbGwtcnVsZT0ibm9uemVybyIgZD0iTTEzIDkuNjRIOS44M1YxM0g4LjE1NFY5LjY0SDVWOC4xNTZoMy4xNTNWNUg5LjgzdjMuMTU2SDEzeiIvPjwvZz48L3N2Zz4K "
+                    alt=""
+                  />
+                  <p>Add Card Details</p>
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIzLjk2NjM5NiAxMi4xMjYyNDJjLjAzMDQ2MS4xOTc3MjYtLjAzMDQ2LjQwNjgwOS0uMTgyNzY1LjU1OTExM2wtNS4zNzQwMTIgNS4zNzQwMTJjLS4yNTM4NC4yNTM4NC0uNjY1Mzk4LjI1Mzg0LS45MTkyMzggMC0uMjUzODQxLS4yNTM4NC0uMjUzODQxLS42NjUzOTggMC0uOTE5MjM5TDIyLjUwNiAxMi4xMjVsLTUuMDE1NjItNS4wMTUzOGMtLjI1Mzg0LS4yNTM4NDEtLjI1Mzg0LS42NjUzOTkgMC0uOTE5MjQuMjUzODQxLS4yNTM4NC42NjUzOTktLjI1Mzg0LjkxOTI0IDBsNS4zNzQwMSA1LjM3NDAxMmMuMTUyMzA1LjE1MjMwNS4yMTMyMjcuMzYxMzg3LjE4Mjc2Ni41NTkxMTR6IiBmaWxsPSIjMDAwIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4="
+                    alt=""
+                  />
+                </div>
+
+                {openCard ? (
+                  <div className={styles.detailsInput}>
+                    <input
+                      type="text"
+                      placeholder="Card Number"
+                      pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
+                      className={styles.cardNum}
+                      required
+                    />
+                    <input type="text" placeholder="Name on Card" />
+                    <div className={styles.dateDetails}>
+                      <input
+                        type="text"
+                        placeholder="Month"
+                        className={styles.month}
+                        min="1"
+                        max="12"
+                        size="2"
+                        maxlength="2"
+                        required
+                      />
+                      <input
+                        type="text"
+                        placeholder="Year"
+                        className={styles.year}
+                        min="2000"
+                        max="2050"
+                        size="4"
+                        maxlength="4"
+                        required
+                      />
+                      <input
+                        type="text"
+                        placeholder="CVV"
+                        className={styles.cvv}
+                        size="3"
+                        maxlength="3"
+                        required
+                      />
+                    </div>
+                    <button
+                      className={styles.btn}
+                      onClick={() => {
+                        alert("Your order placed successfully");
+                        navigate("/");
+                      }}
+                    >
+                      Place Order
+                    </button>
+                  </div>
+                ) : (
+                  <></>
+                )}
+
+                
+              </div>
+            </div>
+          </div>
         </Box>
       </Flex>
     </>
@@ -232,13 +331,3 @@ const CartandCheckout = () => {
 };
 
 export default CartandCheckout;
-
-// import React from 'react'
-
-// const CartandCheckout = () => {
-//   return (
-//     <div>CartandCheckout</div>
-//   )
-// }
-
-// export default CartandCheckout
