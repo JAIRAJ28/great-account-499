@@ -5,10 +5,11 @@ import Home from "../Components/HomePage/Home";
 import LeftSidebar from "../Components/LeftSidebar";
 import Women from "../Pages/ProductPages/Women"
 import Men from "../Pages/ProductPages/Men"
-
+import {Login} from "../Components/loginsig/login"
 import SearchBar from "../Pages/ProductPages/SearchBar";
 import CartandCheckout from "../Pages/Cart and Checkout/CartandCheckout";
-// import
+import { Register } from "../Components/register/register"
+import {Dashboard} from "../Admin/dashboard"
 
 const AllRoutes = () => {
   return (
@@ -19,9 +20,10 @@ const AllRoutes = () => {
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
         <Route path="/search" element={<SearchBar />} />
-        <Route path="/cart" element={<CartandCheckout/>} />
-        {/* <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Login/>} /> */}
+        <Route path="/cart" element={<CartandCheckout />} /> //private route
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/admin" element={<Dashboard />} /> //private route
       </Routes>
       <Footer />
     </div>
