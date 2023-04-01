@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
 import LeftSidebar from "./Components/LeftSidebar";
 import Footer from "./Components/footer/footer";
+
 import AllRoutes from "./AllRoutes/AllRoutes";
 import { Dashboard } from "./Admin/dashboard";
 
@@ -26,7 +27,6 @@ function App() {
         <Dashboard/>
       </div>
     </>
-
   );
 }
 
