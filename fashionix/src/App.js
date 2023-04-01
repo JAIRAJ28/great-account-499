@@ -5,8 +5,7 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
 import LeftSidebar from "./Components/LeftSidebar";
-
-
+import Footer from "./Components/footer/footer";
 
 function App() {
 
@@ -24,7 +23,8 @@ function App() {
         <Navbar />
         <LeftSidebar/>
         <Home key="home" />
-        </div>
+        <Footer/>
+      </div>
     </>
 
   );

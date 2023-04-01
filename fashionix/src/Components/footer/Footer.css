@@ -52,14 +52,15 @@
   .footer {
     display: flex;
     width: 50%;
-    margin-left: 90px;
+    margin-left: 125px;
     justify-content: flex-start;
     padding: 20px;
     list-style: none;
-    /* margin-top: 190px; */
+    margin-top: 150px;
     letter-spacing: 0.4px;
     text-align: start;
     gap: 10px;
+    margin-bottom: 50px;
   }
   
   .smallscreen1 > ul {
@@ -84,6 +85,7 @@
     margin-bottom: 12px;
     color: #37374a;
     font-weight: 200;
+    margin-right: 20px;
     font: 9px "Times New Roman";
     letter-spacing: 0.8px;
     font: 600;
