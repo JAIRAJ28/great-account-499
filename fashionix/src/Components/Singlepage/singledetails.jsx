@@ -4,7 +4,7 @@ import "./singledata.css"
 import { BsPlusLg } from "react-icons/bs";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ProductAddToCart from './singleProductall';
+import ProductAddToCart from './SingleProductall';
 
 const Moredetails = () => {
 let [state1,setState1]=useState(false)

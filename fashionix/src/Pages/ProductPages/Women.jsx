@@ -13,7 +13,7 @@ function Women() {
 
     return <>
         <SearchBar/>
-        <ProductList products={products} />;
+        <ProductList products={products}/>
     </>
 
 }

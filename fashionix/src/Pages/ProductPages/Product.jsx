@@ -34,7 +34,7 @@ function ProductList({ products }) {
       </div>
     );
   }
-  return <div className="product-list">{rows}</div>;
+  return <div className="product-list">{rows}</div>
 }
 
 export { Product, ProductList };
