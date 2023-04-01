@@ -5,9 +5,10 @@ import Home from "../Components/HomePage/Home";
 import LeftSidebar from "../Components/LeftSidebar";
 import Women from "../Pages/ProductPages/Women"
 import Men from "../Pages/ProductPages/Men"
+
 import SearchBar from "../Pages/ProductPages/SearchBar";
 import CartandCheckout from "../Pages/Cart and Checkout/CartandCheckout";
-import 
+// import
 
 const AllRoutes = () => {
   return (
@@ -19,8 +20,8 @@ const AllRoutes = () => {
         <Route path="/men" element={<Men />} />
         <Route path="/search" element={<SearchBar />} />
         <Route path="/cart" element={<CartandCheckout/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Login/>} />
+        {/* <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Login/>} /> */}
       </Routes>
       <Footer />
     </div>
