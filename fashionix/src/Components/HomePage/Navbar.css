@@ -24,6 +24,7 @@ nav {
 .logo {
   height: 50px;
   margin-top: -130px;
+  margin-left: 50px;
 }
 
 .logo>img {
