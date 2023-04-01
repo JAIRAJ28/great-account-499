@@ -7,8 +7,8 @@ import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
 import ResponsiveDrawer from "./Admin/slider";
 import Footer from "./Components/footer/footer";
-import Moredetails from "./Components/Singlepage/singledetails";
-
+import Moredetails from "./Components/Singlepage/Singledetails";
+import { Dashboard } from "./Admin/dashboard";
 function App() {
 
   const [Loaded, setLoaded] = useState(false);
@@ -22,13 +22,15 @@ function App() {
     <>
       <AnimatePresence>{Loaded ? null : <Loader />}</AnimatePresence>
       <div className="App">
-        <Navbar />
+        {/* />
         
         <LeftSideBar/>
 
         <Home key="home" />
     
-        <Footer />
+        <Footer /> */}
+         <Navbar/>
+        <Dashboard/>
       </div>
     </>
 
