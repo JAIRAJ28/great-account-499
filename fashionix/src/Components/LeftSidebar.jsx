@@ -6,6 +6,7 @@ import styled from "styled-components";
 export const LeftSideBar = () => {
   const [val, setVal] = useState(true);
   const [man, setMan] = useState(false);
+
   const handleChange = (e) => {
     changeVal();
   };

@@ -4,7 +4,7 @@ import "./singledata.css"
 import { BsPlusLg } from "react-icons/bs";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ProductSimple from './singleProductall';
+import ProductAddToCart from './singleProductall';
 
 const Moredetails = () => {
 let [state1,setState1]=useState(false)
@@ -15,27 +15,27 @@ let [data,setData]=useState({
     name:"",
     price:""
 })
+let [smallprod,setSmallProd]=useState([]);
+
 
 
 useEffect(()=>{
   axios.get("https://zoro-to7p.onrender.com/Linen_data/800").then((res)=>{
     setData({...data,image:res.data.image,image2:res.data.image2,name:res.data.name,price:res.data.price})
   })
+  axios.get("https://zoro-to7p.onrender.com/SMALLDATASINGLEPAGE").then(res=>setSmallProd(res.data))
   AOS.init();
 },[])
 
+console.log(smallprod)
 
 const handelEchangedis =()=>{
     setState2(!state2)
 }
   return (
-    <div>
+    <div className='mainsingleDiv'>
     <div 
-    style={{
-        display:"flex",
-        textAlign:"start",
-        padding:"40px"
-    }}
+   className="main2nd"
     >
     <div 
     className="singleleftInfo"
@@ -150,12 +150,14 @@ const handelEchangedis =()=>{
        <h6>MULTICOLOURED | 2971/210</h6>
 
        <hr />
-      <select value="" 
+      <select 
       style={{
         height:"50px",
-        padding:"10px"
+        padding:"10px",
+        
       }}
-      >
+      > 
+     
         <option  value="XL">XL</option>
         <option  value="L">L</option>
         <option  value="M">M</option>
@@ -201,11 +203,19 @@ const handelEchangedis =()=>{
     </div>
     </div>
     </div>
-    
-   {/* <ProductSimple
-   
-   /> */}
 
+
+
+    <div className="productsmall">
+    {smallprod?.map((item)=>(
+      <ProductAddToCart
+   image={item.image}
+   name={item.name}
+   price={item.price}
+   />
+    ))}
+   
+   </div>
     </div>
   )
 }

@@ -26,3 +26,48 @@
     width:60%;
     padding:0px 40px
 }
+.productsmall{
+   
+    display:grid;
+    gap:10px;
+    grid-template-columns: repeat(5,1fr);
+}
+.main2nd{
+        display:flex;
+        text-align:start;
+        padding:40px
+}
+
+@media screen  and (max-width: 1000px){
+    .productsmall{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .singleleftInfo{
+        display:none
+    }
+    .productsmall{
+        display:none;
+    }
+    .main2nd{
+        flex-direction: column;
+    }
+    .singledisplay{
+        width: 100%;
+        height: 400px;
+    }
+    .singledisplayimg{
+        width:85%;
+        height: 90%;
+        margin: 20px;
+    }
+    .singledetailsRight{
+        width:100%;
+        text-align: center;
+    }
+    .singledetailsRight2{
+        width:100%;
+    }
+}

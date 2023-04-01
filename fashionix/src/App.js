@@ -5,8 +5,9 @@ import Loader from "./Components/HomePage/Loader";
 import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
-
+import ResponsiveDrawer from "./Admin/slider";
 import Footer from "./Components/footer/footer";
+import Moredetails from "./Components/Singlepage/singledetails";
 
 function App() {
 
@@ -26,7 +27,7 @@ function App() {
         <LeftSideBar/>
 
         <Home key="home" />
-     
+    
         <Footer />
       </div>
     </>
