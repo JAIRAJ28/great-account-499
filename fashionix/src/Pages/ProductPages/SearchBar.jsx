@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const SearchBarWrapper = styled.div`
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
   border-bottom: 1px solid black;
   margin-top: 20px;
@@ -22,13 +22,19 @@ const FilterButton = styled.button`
   height: 20px;
   border: 1px solid gray;
   background-color: white;
-  margin-top: 34px;
-  margin-left: 30px;
+  margin-top: 40px;
+  margin-right:20px;
+  font-size:12px;
 `;
+
+const DIV = styled.div`
+display:flex;
+justify-content:space-between;
+`
 
 const SearchBar = () => {
   return (
-    <div className="searchFilterBox">
+    <DIV className="searchFilterBox">
       <SearchBarWrapper>
         <SearchInput
           type="text"
@@ -36,7 +42,7 @@ const SearchBar = () => {
         />
       </SearchBarWrapper>
       <FilterButton>FILTERS</FilterButton>
-    </div>
+    </DIV>
   );
 };
 
