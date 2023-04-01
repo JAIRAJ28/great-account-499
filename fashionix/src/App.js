@@ -7,7 +7,7 @@ import Home from "./Components/HomePage/Home";
 import LeftSidebar from "./Components/LeftSidebar";
 import Footer from "./Components/footer/footer";
 import AllRoutes from "./AllRoutes/AllRoutes";
-import { Dashboard } from "./Admin/dashboard";
+import { Dashboard } from "./Admin/Dashboard";
 function App() {
 
   const [Loaded, setLoaded] = useState(false);
