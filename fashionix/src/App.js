@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
 import LeftSidebar from "./Components/LeftSidebar";
 import Footer from "./Components/footer/footer";
+import AllRoutes from "./AllRoutes/AllRoutes";
 
 function App() {
 
@@ -20,10 +21,7 @@ function App() {
     <>
       <AnimatePresence>{Loaded ? null : <Loader />}</AnimatePresence>
       <div className="App">
-        <Navbar />
-        <LeftSidebar/>
-        <Home key="home" />
-        <Footer/>
+        <AllRoutes/>
       </div>
     </>
 
