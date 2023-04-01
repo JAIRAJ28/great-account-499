@@ -6,8 +6,8 @@ import { AnimatePresence } from "framer-motion";
 import Home from "./Components/HomePage/Home";
 import LeftSidebar from "./Components/LeftSidebar";
 import Women from './Pages/ProductPages/Women';
-
-
+import Footer from "./Components/footer/footer";
+import Moredetails from "./Components/Singlepage/singledetails";
 function App() {
 
   const [Loaded, setLoaded] = useState(false);
@@ -24,7 +24,8 @@ function App() {
         <Navbar />
         <LeftSidebar/>
         <Home key="home" />
-        <Women/>
+       
+        <Footer/>
       </div>
     </>
 

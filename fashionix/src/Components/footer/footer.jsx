@@ -39,7 +39,7 @@ const Footer = () => {
         {/* Footer Here */}
         <div className="footer">
           <ul className="smallscreen">
-            <p>Help</p>
+            <p>HELP</p>
 
             <li>
               {" "}
