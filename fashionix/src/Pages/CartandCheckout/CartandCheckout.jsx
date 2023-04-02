@@ -111,7 +111,7 @@ const CartandCheckout = () => {
     );
   }
   return (
-    <>
+    <Box mt={"130"}>
       <Flex w={"95%"} m={" auto"} justify="space-between">
         <Box width="70%">
           {cartProd.map((el) => {
@@ -324,7 +324,7 @@ const CartandCheckout = () => {
           </div>
         </Box>
       </Flex>
-    </>
+    </Box>
   );
 };
 
