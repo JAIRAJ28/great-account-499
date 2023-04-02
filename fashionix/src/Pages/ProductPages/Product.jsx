@@ -1,17 +1,15 @@
 import React from 'react';
 import './product.css';
-import { CiCirclePlus } from 'react-icons/ci';
-import {BsCurrencyRupee} from 'react-icons/bs'
+import { BiCartAdd } from 'react-icons/bi';
 
 
-function Product({ name, price, image,id }) {
+function Product({ name, price, image }) {
   return (
     <div className="product">
-      <h2>{id}</h2>
       <img src={image} alt={name} />
-      <CiCirclePlus/>
+      <div className="cartButton"><BiCartAdd size={25}/></div>
       <p>{name}</p>
-      <p><BsCurrencyRupee/>{price}</p>
+      <p>₹ {price}</p>
     </div>
   );
 }
@@ -25,7 +23,6 @@ function ProductList({ products }) {
         {rowProducts.map(product => (
           <Product
             key={product.id}
-            id={product.id}
             name={product.name}
             price={product.price}
             image={product.image}
@@ -34,7 +31,7 @@ function ProductList({ products }) {
       </div>
     );
   }
-  return <div className="product-list">{rows}</div>;
+  return <div className="product-list">{rows}</div>
 }
 
 export { Product, ProductList };

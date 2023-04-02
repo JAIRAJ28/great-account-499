@@ -11,12 +11,13 @@ import CartandCheckout from "../Pages/Cart and Checkout/CartandCheckout";
 import { Register } from "../Components/register/register";
 import Navbar from "../Components/HomePage/Navbar";
 
+
 const AllRoutes = () => {
   return (
     <div>
       <Navbar />
       <LeftSidebar />
-      <Routes>
+      <Routes>      
         <Route path="/" element={<Home />} />
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />

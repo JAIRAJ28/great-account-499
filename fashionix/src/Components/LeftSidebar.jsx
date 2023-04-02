@@ -114,6 +114,7 @@ const LeftSidebar = ({ activeIndexs }) => {
             </label>
             <div className="menuLogo"></div>
             <div className="menuTop">
+            
               <Link to={"/women"}>
                 <span
                   style={
