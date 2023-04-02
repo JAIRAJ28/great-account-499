@@ -18,7 +18,6 @@ import { Dashboard } from "../Admin/Dashboard";
 import { Admin } from "../Admin/logAdmin/loginAmin";
 
 
-
 const AllRoutes = () => {
   return (
     <div>

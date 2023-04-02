@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./Login.css";
+
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
@@ -35,6 +36,9 @@ signInWithEmailAndPassword(auth,state.email,state.password).then((res)=>{
 }
 
 
+
+
+const Login = () => {
 
   return (
     <div 
@@ -78,3 +82,4 @@ signInWithEmailAndPassword(auth,state.email,state.password).then((res)=>{
     </div>
   )
 }
+export default Login;
