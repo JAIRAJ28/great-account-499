@@ -7,9 +7,10 @@ import Women from "../Pages/ProductPages/Women";
 import Men from "../Pages/ProductPages/Men";
 import { Login } from "../Components/loginsig/login";
 import SearchBar from "../Pages/ProductPages/SearchBar";
-import CartandCheckout from "../Pages/Cart and Checkout/CartandCheckout";
+import CartandCheckout from "../Pages/CartandCheckout/CartandCheckout";
 import { Register } from "../Components/register/register";
 import Navbar from "../Components/HomePage/Navbar";
+import Moredetails from "../Components/Singlepage/singledetails";
 
 
 const AllRoutes = () => {
@@ -21,8 +22,9 @@ const AllRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
+        <Route path="/product/id" element={<Moredetails />} />
         <Route path="/search" element={<SearchBar />} />
-        <Route path="/cart" element={<CartandCheckout />} /> //private route
+        <Route path="/cart" element={<CartandCheckout />} /> 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
