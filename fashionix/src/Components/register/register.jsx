@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "./Register.css";
+import "./register.css";
 import { createUserWithEmailAndPassword ,updateProfile} from 'firebase/auth';
 import { auth } from '../../firebase';
 export const Register = () => {
