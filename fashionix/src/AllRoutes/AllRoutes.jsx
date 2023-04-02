@@ -7,14 +7,14 @@ import Women from "../Pages/ProductPages/Women"
 import Men from "../Pages/ProductPages/Men"
 
 import SearchBar from "../Pages/ProductPages/SearchBar";
-import CartandCheckout from "../Pages/Cart and Checkout/CartandCheckout";
+import CartandCheckout from "../Pages/CartandCheckout/CartandCheckout";
 // import
 
 const AllRoutes = () => {
   return (
     <div>
       <LeftSidebar />
-      <Routes>
+      <Routes>      
         <Route path="/" element={<Home />} />
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
