@@ -4,6 +4,11 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import AllRoutes from "./AllRoutes/AllRoutes";
 
+import { Dashboard } from "./Admin/Dashboard";
+
+
+
+
 function App() {
 
   const [Loaded, setLoaded] = useState(false);
@@ -18,6 +23,11 @@ function App() {
       <AnimatePresence>{Loaded ? null : <Loader />}</AnimatePresence>
       <div className="App">
         <AllRoutes/>
+    
+      
+        {/* <Login/> */}
+
+
       </div>
     </>
   );
