@@ -1,33 +1,102 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Dashboard.css"
+import { useDispatch,useSelector } from "react-redux";
+import { DeleteProduct, getProducts } from './Adminredux/action';
+import { RiEdit2Fill } from "react-icons/ri";
+import { MdDelete } from "react-icons/md";
+import { Button, Input} from '@chakra-ui/react'
+import { AddProduct } from './Adminredux/action';
+import { Link } from 'react-router-dom';
+import { AuthContext } from './logAdmin/useContext/AuthContext';
+import { useContext } from 'react';
 export const Dashboard = () => {
+const [render,setRender]=useState(false)
+const store=useSelector((store)=>{
+   
+    return store 
+})
+
+let dispatch=useDispatch()
+useEffect(()=>{
+dispatch(getProducts())
+},[render])
+
+
+const Auth=useContext(AuthContext)
+
+console.log(Auth)
+
+const [addform,SetAddForm]=useState({
+
+        id: "",
+        image: "",
+        image2: "",
+        color: "",
+        name: "",
+        price: ""
+
+})
+
+const HandelAddForm=(e)=>{
+    SetAddForm({...addform,[e.target.name]:e.target.value})
+}
+
+
+
+const handelAddFormsubmit=(e)=>{
+ e.preventDefault()
+ let obj={
+    ...addform
+ }
+
+ dispatch(AddProduct(obj)).then((res)=>{
+    setRender(!render)
+    
+ })
+SetAddForm({
+
+    id: "",
+    image: "",
+    image2: "",
+    color: "",
+    name: "",
+    price: ""
+})
+}
+
+const HandelDeleteClick=(id)=>{
+  dispatch(DeleteProduct(id)).then(()=>{
+    setRender(!render)
+  })
+}
+
+
+
+
+
   return (
     <div>
 
 
-<body id="page-top">
+<body id="page-top" >
 
     {/* <!-- Page Wrapper --> */}
-    <div id="wrapper" style={{
-        backgroundColor:"gray"
-    }}>
+    <div id="wrapper" 
+    style={{
+        backgroundColor:"#8EC3B0"
+    }}
+    >
 
         {/* <!-- Sidebar --> */}
-        <ul style={{marginTop:"80px"}} className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul style={{marginTop:"80px", backgroundColor:"#393053"}} className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            {/* <!-- Sidebar - Brand --> */}
-            {/* <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div className="sidebar-brand-icon rotate-n-15">
-                    <i className="fas fa-laugh-wink"></i>
-                </div>
-                <div className="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-            </a> */}
+
 
             {/* <!-- Divider --> */}
             <hr className="sidebar-divider my-0"/>
 
             {/* <!-- Nav Item - Dashboard --> */}
-            <li className="nav-item active" >
+            <li className="nav-item active"  >
                 <a className="nav-link" href="index.html">
                     <i className="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -35,88 +104,44 @@ export const Dashboard = () => {
 
             {/* <!-- Divider --> */}
             <hr className="sidebar-divider"/>
-{/* 
-            <!-- Heading --> */}
-            <div className="sidebar-heading">
-                Interface
-            </div>
+
 
             {/* <!-- Nav Item - Pages Collapse Menu --> */}
             <li className="nav-item">
-                <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i className="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div className="bg-white py-2 collapse-inner rounded">
-                        <h6 className="collapse-header">Custom Components:</h6>
-                        <a className="collapse-item" href="buttons.html">Buttons</a>
-                        <a className="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
-
-            {/* <!-- Nav Item - Utilities Collapse Menu --> */}
-            <li className="nav-item">
-                <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i className="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" className="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div className="bg-white py-2 collapse-inner rounded">
-                        <h6 className="collapse-header">Custom Utilities:</h6>
-                        <a className="collapse-item" href="utilities-color.html">Colors</a>
-                        <a className="collapse-item" href="utilities-border.html">Borders</a>
-                        <a className="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a className="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
-            {/* <!-- Divider --> */}
-            <hr className="sidebar-divider"/>
-
-            {/* <!-- Heading --> */}
-            <div className="sidebar-heading">
-                Addons
-            </div>
-
-            {/* <!-- Nav Item - Pages Collapse Menu --> */}
-            <li className="nav-item">
-                <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                <a className="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i className="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>Log In</span>
                 </a>
                 <div id="collapsePages" className="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div className="bg-white py-2 collapse-inner rounded">
                         <h6 className="collapse-header">Login Screens:</h6>
-                        <a className="collapse-item" href="login.html">Login</a>
-                        <a className="collapse-item" href="register.html">Register</a>
-                        <a className="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <Link className="collapse-item" to="/AdminLogin">Login</Link>
+                       
+                        <Link className="collapse-item" href="">Forgot Password</Link>
+                        <Link className="collapse-item" href="" onClick={()=>{
+                            Auth.setState(false)
+                        }}>LogOut</Link>
                         <div className="collapse-divider"></div>
-                        <h6 className="collapse-header">Other Pages:</h6>
-                        <a className="collapse-item" href="404.html">404 Page</a>
-                        <a className="collapse-item" href="blank.html">Blank Page</a>
+
                     </div>
                 </div>
             </li>
 
             {/* <!-- Nav Item - Charts --> */}
             <li className="nav-item">
-                <a className="nav-link" href="charts.html">
+                <a className="nav-link" href="/AdminDashboard">
                     <i className="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                    <span onClick={()=>{
+                        alert("Edit From Product OverView")
+                    }}>Edit</span></a>
             </li>
 
             {/* <!-- Nav Item - Tables --> */}
             <li className="nav-item">
-                <a className="nav-link" href="tables.html">
+                <a className="nav-link" href="">
                     <i className="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Track Product Delivery</span></a>
             </li>
 
             {/* <!-- Divider --> */}
@@ -130,7 +155,7 @@ export const Dashboard = () => {
             {/* <!-- Sidebar Message --> */}
             <div className="sidebar-card d-none d-lg-flex">
                 <img className="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="..."/>
-                <p className="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+                <p className="text-center mb-2"><strong> Admin Pannel</strong> </p>
                 <a className="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>
 
@@ -138,7 +163,9 @@ export const Dashboard = () => {
         {/* <!-- End of Sidebar --> */}
 
         {/* <!-- Content Wrapper --> */}
-        <div id="content-wrapper" className="d-flex flex-column">
+        <div id="content-wrapper" className="d-flex flex-column" style={{
+       backgroundColor:"#DEFCF9"
+    }}>
 
             {/* <!-- Main Content --> */}
             <div id="content">
@@ -151,20 +178,14 @@ export const Dashboard = () => {
                 <div className="container-fluid" >
 
                     {/* <!-- Page Heading --> */}
-                    {/* <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 className="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                className="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div> */}
+           
 
                     {/* <!-- Content Row --> */}
                     <div className="row" style={{marginTop:"40px" ,backgroundColor:"#C7E8CA"}}>
 
                         {/* <!-- Earnings (Monthly) Card Example --> */}
                         <div className="col-xl-3 col-md-6 mb-4">
-                            <div className="card border-left-primary shadow h-100 py-2" style={{
-        backgroundColor:"#393053"
-    }}>
+                            <div className="card border-left-primary shadow h-100 py-2" style={{backgroundColor:"#393053" }}>
                                 <div className="card-body" >
                                     <div className="row no-gutters align-items-center">
                                         <div className="col mr-2" >
@@ -182,15 +203,11 @@ export const Dashboard = () => {
 
                         {/* <!-- Earnings (Monthly) Card Example --> */}
                         <div className="col-xl-3 col-md-6 mb-4">
-                            <div className="card border-left-success shadow h-100 py-2" style={{
-        backgroundColor:"#443C68"
-    }}>
+                            <div className="card border-left-success shadow h-100 py-2" style={{backgroundColor:"#443C68" }}>
                                 <div className="card-body">
                                     <div className="row no-gutters align-items-center">
                                         <div className="col mr-2">
-                                            <div className="text-xs font-weight-bold text-success text-uppercase mb-1" style={{
-       color:"blue"
-    }}>
+                                            <div className="text-xs font-weight-bold text-success text-uppercase mb-1" style={{color:"blue" }}>
                                                 Earnings (Annual)</div>
                                             <div className="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
                                         </div>
@@ -204,9 +221,7 @@ export const Dashboard = () => {
 
                         {/* <!-- Earnings (Monthly) Card Example --> */}
                         <div className="col-xl-3 col-md-6 mb-4">
-                            <div className="card border-left-info shadow h-100 py-2"  style={{
-        backgroundColor:"#443C68"
-    }}>
+                            <div className="card border-left-info shadow h-100 py-2"  style={{backgroundColor:"#443C68"}}>
                                 <div className="card-body">
                                     <div className="row no-gutters align-items-center">
                                         <div className="col mr-2">
@@ -233,9 +248,7 @@ export const Dashboard = () => {
 
                         {/* <!-- Pending Requests Card Example --> */}
                         <div className="col-xl-3 col-md-6 mb-4">
-                            <div className="card border-left-warning shadow h-100 py-2"  style={{
-        backgroundColor:"#393053"
-    }}>
+                            <div className="card border-left-warning shadow h-100 py-2"  style={{  backgroundColor:"#393053"}}>
                                 <div className="card-body">
                                     <div className="row no-gutters align-items-center">
                                         <div className="col mr-2">
@@ -262,7 +275,7 @@ export const Dashboard = () => {
                                 {/* <!-- Card Header - Dropdown --> */}
                                 <div
                                     className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 className="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 className="m-0 font-weight-bold text-primary">{Auth?"Log In To See OverView":"Products Overview"}</h6>
                                     <div className="dropdown no-arrow">
                                         <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -270,18 +283,63 @@ export const Dashboard = () => {
                                         </a>
                                         <div className="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
-                                            <div className="dropdown-header">Dropdown Header:</div>
-                                            <a className="dropdown-item" href="#">Action</a>
-                                            <a className="dropdown-item" href="#">Another action</a>
+                                            <div className="dropdown-header">AdminCheck:</div>
+                                            <a className="dropdown-item" href="#">See</a>
+                                            <a className="dropdown-item" href="#">Think</a>
                                             <div className="dropdown-divider"></div>
-                                            <a className="dropdown-item" href="#">Something else here</a>
+                                            <a className="dropdown-item" href="#">Delete </a>
                                         </div>
                                     </div>
                                 </div>
                                 {/* <!-- Card Body --> */}
                                 <div className="card-body">
                                     <div className="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                    {
+                                       Auth.state? store.reducer.isLoading?"Loading....": <table 
+                                        className="table" 
+                                        style={{
+                                            border: "4px solid green"
+                                        }}
+                                        
+                                        >
+                                            <thead>
+                                                <tr 
+                                                 style={{
+                                                    border: "1px solid green"
+                                                }}>
+                                                    <th>Id</th>
+                                                     <th>Name</th>
+                                                     <th>Image</th>
+                                                     <th>Price</th>
+                                                     <th>Delete</th>
+                                                     <th>Edit</th>
+                                             </tr>
+                                            </thead>
+                                            <tbody 
+                                     
+                                            >
+                                                {
+                                                  store.reducer.products?.map((el)=>(
+                                           <tr>
+                                                    <td>{el.id}</td>
+                                                    <td>{el.name}</td>
+                                                    <td className="tableimg">{el.image.substring(0,30)}</td>
+                                                    <td>{el.price}</td>
+                                                    <td><RiEdit2Fill/></td>
+                                                    <td 
+                                                    onClick={()=>HandelDeleteClick(el.id)}
+                                                    ><MdDelete/></td>
+                                              
+                                           </tr>
+                                                  )) 
+                                                }
+                                      
+                                            </tbody>
+                                        </table>:<img width="100%" src="https://forum.zeroqode.com/uploads/default/original/1X/d6165fab438f6f58263c2376bc754f0b51676887.gif"/>
+                                    }
+                                        {
+                                           
+                                        } 
                                     </div>
                                 </div>
                             </div>
@@ -293,7 +351,7 @@ export const Dashboard = () => {
                                 {/* <!-- Card Header - Dropdown --> */}
                                 <div
                                     className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 className="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                    <h6 className="m-0 font-weight-bold text-primary">Add Product</h6>
                                     <div className="dropdown no-arrow">
                                         <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -310,25 +368,39 @@ export const Dashboard = () => {
                                     </div>
                                 </div>
                                 {/* <!-- Card Body --> */}
-                                <div className="card-body">
-                                    <div className="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
+
+
+
+                                
+
+                                <div className="card-body" style={{height:"500px",textAlign:"center" }}>
+                                    <div className="chart-pie pt-4 pb-2" >
+                                     { Auth.state? <form action="" onSubmit={handelAddFormsubmit}>
+                                       <Input placeholder='Id' type="number" size='md' mt="10px" name="id" value={addform.id} onChange={HandelAddForm} />
+                                       <Input placeholder='image link' size='md' mt="10px" name="image" value={addform.image} onChange={HandelAddForm} />
+                                       <Input placeholder='image2 link' size='md' mt="10px" name="image2" value={addform.image2} onChange={HandelAddForm} />
+                                       <Input placeholder='color code 1 to 6' size='md' name="color" mt="10px" value={addform.color} onChange={HandelAddForm} />
+                                       <Input placeholder=' Enter The Name ' size='md' name="name" value={addform.name}  mt="10px" onChange={HandelAddForm}/>
+                                       <Input placeholder='Enter The Price' type="number" size='md' name="price" value={addform.price}  mt="10px" onChange={HandelAddForm}/>
+                                        <Button type='submit' width={"100%"} mt={"30px"} onSubmit={handelAddFormsubmit} >ADD</Button>
+                                        {/* <input type="submit" placeholder="Add" /> */}
+                                       </form>:<img src="https://i.pinimg.com/originals/7f/2d/c4/7f2dc4bac6cae40c4db5aaf35294c7f4.gif" alt="" />}
                                     </div>
-                                    <div className="mt-4 text-center small">
-                                        <span className="mr-2">
-                                            <i className="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span className="mr-2">
-                                            <i className="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span className="mr-2">
-                                            <i className="fas fa-circle text-info"></i> Referral
-                                        </span>
-                                    </div>
+                     
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+
+
+
+
+
+
+
+
 
                     {/* <!-- Content Row --> */}
                     <div className="row">
@@ -339,7 +411,7 @@ export const Dashboard = () => {
                             {/* <!-- Project Card Example --> */}
                             <div className="card shadow mb-4">
                                 <div className="card-header py-3">
-                                    <h6 className="m-0 font-weight-bold text-primary">Projects</h6>
+                                    <h6 className="m-0 font-weight-bold text-primary">Track Data And Sales</h6>
                                 </div>
                                 <div className="card-body">
                                     <h4 className="small font-weight-bold">Server Migration <span
@@ -350,7 +422,7 @@ export const Dashboard = () => {
                                     <h4 className="small font-weight-bold">Sales Tracking <span
                                             className="float-right">40%</span></h4>
                                     <div className="progress mb-4">
-                                        <div className="progress-bar bg-warning st3" role="progressbar" ></div>
+                                        <div className="progress-bar bg-warning st3" role="progressbar"  ></div>
                                     </div>
                                     <h4 className="small font-weight-bold">Customer Database <span
                                             className="float-right">60%</span></h4>
@@ -388,54 +460,7 @@ export const Dashboard = () => {
                                         </div>
                                     </div>
                                 </div>
-                                {/* <div className="col-lg-6 mb-4">
-                                    <div className="card bg-info text-white shadow">
-                                        <div className="card-body">
-                                            Info
-                                            <div className="text-white-50 small">#36b9cc</div>
-                                        </div>
-                                    </div>
-                                </div> */}
-                                {/* <div className="col-lg-6 mb-4">
-                                    <div className="card bg-warning text-white shadow">
-                                        <div className="card-body">
-                                            Warning
-                                            <div className="text-white-50 small">#f6c23e</div>
-                                        </div>
-                                    </div>
-                                </div> */}
-                                {/* <div className="col-lg-6 mb-4">
-                                    <div className="card bg-danger text-white shadow">
-                                        <div className="card-body">
-                                            Danger
-                                            <div className="text-white-50 small">#e74a3b</div>
-                                        </div>
-                                    </div>
-                                </div> */}
-                                {/* <div className="col-lg-6 mb-4">
-                                    <div className="card bg-secondary text-white shadow">
-                                        <div className="card-body">
-                                            Secondary
-                                            <div className="text-white-50 small">#858796</div>
-                                        </div>
-                                    </div>
-                                </div> */}
-                                {/* <div className="col-lg-6 mb-4">
-                                    <div className="card bg-light text-black shadow">
-                                        <div className="card-body">
-                                            Light
-                                            <div className="text-black-50 small">#f8f9fc</div>
-                                        </div>
-                                    </div>
-                                </div> */}
-                                {/* <div className="col-lg-6 mb-4">
-                                    <div className="card bg-dark text-white shadow">
-                                        <div className="card-body">
-                                            Dark
-                                            <div className="text-white-50 small">#5a5c69</div>
-                                        </div>
-                                    </div>
-                                </div> */}
+
                             </div>
 
                         </div>
@@ -445,33 +470,14 @@ export const Dashboard = () => {
                             {/* <!-- Illustrations --> */}
                             <div className="card shadow mb-4">
                                 <div className="card-header py-3">
-                                    <h6 className="m-0 font-weight-bold text-primary">Illustrations</h6>
+                                    <h6 className="m-0 font-weight-bold text-primary">Our Aim</h6>
                                 </div>
                                 <div className="card-body">
                                     <div className="text-center">
                                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4 st7" 
                                             src="img/undraw_posting_photo.svg" alt="..."/>
                                     </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a  href="#">Browse Illustrations on
-                                        unDraw ;</a>
-                                </div>
-                            </div>
-
-                            {/* <!-- Approach --> */}
-                            <div className="card shadow mb-4">
-                                <div className="card-header py-3">
-                                    <h6 className="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                </div>
-                                <div className="card-body">
-                                    {/* <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classNamees in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classNamees are used to create
-                                        custom components and custom utility classNamees.</p>
-                                    <p className="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classNamees.</p> */}
+                                 <h2>Discover the new you.</h2>
                                 </div>
                             </div>
 
@@ -488,7 +494,7 @@ export const Dashboard = () => {
             <footer className="sticky-footer bg-white">
                 <div className="container my-auto">
                     <div className="copyright text-center my-auto">
-                        <span>FAHIONIX &copy;  Website 2023</span>
+                        <span>FASHIONIX &copy;  Website 2023</span>
                     </div>
                 </div>
             </footer>
@@ -506,7 +512,7 @@ export const Dashboard = () => {
     </a>
 
     {/* <!-- Logout Modal--> */}
-    <div className="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    {/* <div className="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div className="modal-dialog" role="document">
             <div className="modal-content">
@@ -523,7 +529,7 @@ export const Dashboard = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </div> */}
 
 
 

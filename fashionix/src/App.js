@@ -7,8 +7,8 @@ import Home from "./Components/HomePage/Home";
 import LeftSidebar from "./Components/LeftSidebar";
 import Footer from "./Components/footer/footer";
 import AllRoutes from "./AllRoutes/AllRoutes";
-import { Dashboard } from "./Admin/dashboard";
-
+import { Dashboard } from "./Admin/Dashboard";
+import { Login } from "./Components/loginsig/Login";
 function App() {
 
   const [Loaded, setLoaded] = useState(false);
@@ -23,7 +23,8 @@ function App() {
       <AnimatePresence>{Loaded ? null : <Loader />}</AnimatePresence>
       <div className="App">
         <AllRoutes/>
-        <Dashboard/>
+      
+        {/* <Login/> */}
       </div>
     </>
 

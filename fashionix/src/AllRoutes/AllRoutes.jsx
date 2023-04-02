@@ -5,9 +5,10 @@ import Home from "../Components/HomePage/Home";
 import LeftSidebar from "../Components/LeftSidebar";
 import Women from "../Pages/ProductPages/Women"
 import Men from "../Pages/ProductPages/Men"
-
+import { Dashboard } from "../Admin/Dashboard";
 import SearchBar from "../Pages/ProductPages/SearchBar";
 import CartandCheckout from "../Pages/Cart and Checkout/CartandCheckout";
+import { Admin } from "../Admin/logAdmin/loginAmin";
 // import
 
 const AllRoutes = () => {
@@ -22,6 +23,9 @@ const AllRoutes = () => {
         <Route path="/cart" element={<CartandCheckout/>} />
         {/* <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Login/>} /> */}
+        <Route path="/AdminDashboard" element={<Dashboard/>} />
+        <Route path="/AdminLogin" element={<Admin/>} />
+        <Route path="/AdminEdit" element={<Admin/>}/>
       </Routes>
       <Footer />
     </div>
