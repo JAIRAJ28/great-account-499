@@ -5,9 +5,9 @@ import Home from "../Components/HomePage/Home";
 import LeftSidebar from "../Components/LeftSidebar";
 import Women from "../Pages/ProductPages/Women"
 import Men from "../Pages/ProductPages/Men"
-
 import SearchBar from "../Pages/ProductPages/SearchBar";
 import CartandCheckout from "../Pages/CartandCheckout/CartandCheckout";
+import Login from "../Components/loginsig/login";
 // import
 
 const AllRoutes = () => {
@@ -19,8 +19,8 @@ const AllRoutes = () => {
         <Route path="/women" element={<Women />} />
         <Route path="/men" element={<Men />} />
         <Route path="/search" element={<SearchBar />} />
-        <Route path="/cart" element={<CartandCheckout/>} />
-        {/* <Route path="/login" element={<Login/>} />
+        <Route path="/login" element={<Login/>} />
+        {/*<Route path="/cart" element={<CartandCheckout/>} />
         <Route path="/register" element={<Login/>} /> */}
       </Routes>
       <Footer />
