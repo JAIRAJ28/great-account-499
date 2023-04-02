@@ -111,9 +111,9 @@ const CartandCheckout = () => {
     );
   }
   return (
-    <>
+    <Box mt={"130"}>
       <Flex w={"95%"} m={" auto"} justify="space-between">
-        <Box width="70%">
+        <Box width="70%" mt={"130"}>
           {cartProd.map((el) => {
             return (
               <Flex h={"250px"} m={"10px auto"} p={8} justify="space-between">
@@ -143,7 +143,7 @@ const CartandCheckout = () => {
             );
           })}
         </Box>
-        <Box width="28%">
+        <Box width="28%" mt={"130"}>
           <Box bg="#F2F2F2" pb={5} pt={1} my={4}>
             <Text
               fontSize={"xl"}
@@ -319,14 +319,12 @@ const CartandCheckout = () => {
                 ) : (
                   <></>
                 )}
-
-                
               </div>
             </div>
           </div>
         </Box>
       </Flex>
-    </>
+    </Box>
   );
 };
 
