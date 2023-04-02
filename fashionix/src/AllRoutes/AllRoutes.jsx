@@ -12,7 +12,6 @@ import { Register } from "../Components/register/register";
 import Navbar from "../Components/HomePage/Navbar";
 import Moredetails from "../Components/Singlepage/singledetails";
 
-
 const AllRoutes = () => {
   return (
     <div>
