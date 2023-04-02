@@ -114,6 +114,7 @@ const LeftSidebar = ({ activeIndexs }) => {
             </label>
             <div className="menuLogo"></div>
             <div className="menuTop">
+            
               <Link to={"/women"}>
                 <span
                   style={
@@ -136,7 +137,7 @@ const LeftSidebar = ({ activeIndexs }) => {
                 </span>
                 {/* </button> */}
               </Link>
-              <Link to={""}>
+              <Link to={"/men"}>
                 <span
                   onClick={() => setMan(true)}
                   style={

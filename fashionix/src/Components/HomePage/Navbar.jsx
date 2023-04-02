@@ -4,6 +4,7 @@ import { FaBars, FaShoppingCart, FaQuestion, FaUser } from "react-icons/fa";
 import { RiAdminLine } from "react-icons/ri";
 import FashionIx2 from "../Images/FashionIx2.png";
 import FashionIx from "../Images/FashionIx.png";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -44,6 +45,7 @@ export default function Navbar() {
     }
   };
 
+
   const searchBoxClass = isScrolled
     ? "searchInputBox scrolled"
     : "searchInputBox";
@@ -78,26 +80,26 @@ export default function Navbar() {
         {(toggleMenu || screenWidth > 500) && (
           <ul className="list">
             <li className="items">
-              <a href="#">
+              <Link to={"/login"}>
                 <FaUser style={{ color: svgColor }}/>
-              </a>
+              </Link>
             </li>
 
             <li className="items">
-              <a href="#">
+              <Link to={""}>
                 <FaQuestion style={{ color: svgColor }} />
-              </a>
+              </Link>
             </li>
 
             <li className="items">
-              <a href="#">
+              <Link to={"/cart"}>
                 <FaShoppingCart style={{ color: svgColor }} />
-              </a>
+              </Link>
             </li>
             <li className="items">
-              <a href="#">
+              <Link >
                 <RiAdminLine style={{ color: svgColor }} />
-              </a>
+              </Link>
             </li>
           </ul>
         )}
