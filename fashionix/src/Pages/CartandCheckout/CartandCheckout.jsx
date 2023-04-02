@@ -319,8 +319,6 @@ const CartandCheckout = () => {
                 ) : (
                   <></>
                 )}
-
-                
               </div>
             </div>
           </div>
