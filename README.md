@@ -3,7 +3,7 @@ Fashionix is a stunning fashion website clone that replicates the popular fashio
 
 
 # Deployed Link : 
-                 https://incredible-dusk-9f4db9.netlify.app/
+https://incredible-dusk-9f4db9.netlify.app/
 
 
 # HomePage
