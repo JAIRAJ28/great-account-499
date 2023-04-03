@@ -5,7 +5,7 @@ import Home from "../Components/HomePage/Home";
 import LeftSidebar from "../Components/LeftSidebar";
 import Women from "../Pages/ProductPages/Women";
 import Men from "../Pages/ProductPages/Men";
-import { Login } from "../Components/loginsig/login";
+import  Login  from "../Components/loginsig/login";
 import SearchBar from "../Pages/ProductPages/SearchBar";
 import CartandCheckout from "../Pages/CartandCheckout/CartandCheckout";
 import { Register } from "../Components/register/register";
