@@ -1,5 +1,5 @@
 # great-account-499
-Fashionix is a stunning fashion website clone that replicates the popular fashion brand, Zara. Built with cutting-edge technologies such as React, Redux, and ChakraUI, this project is a testament to the power of collaboration and skillful development. In just five days, a team of three members (@RiteshKumarShukla, JaiRaj Singh, Jeevan Jeet Chaudhary) were able to create a highly functional and aesthetically pleasing website that is sure to impress. With a seamless user experience and a vast array of features, Fashionix is a prime example of how modern web development can elevate the online shopping experience.
+Fashionix is a stunning fashion website clone that replicates the popular fashion brand, Zara. Built with cutting-edge technologies such as React, Redux, and ChakraUI, this project is a testament to the power of collaboration and skillful development. In just five days, a team of three members (Ritesh Kr. Shukla, JaiRaj Singh, Jeevan Jeet Chaudhary) were able to create a highly functional and aesthetically pleasing website that is sure to impress. With a seamless user experience and a vast array of features, Fashionix is a prime example of how modern web development can elevate the online shopping experience.
 
 
 
